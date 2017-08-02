@@ -15,19 +15,17 @@ import {ShoppingListService} from '../shopping-list.service';
 export class ShoppingEditComponent implements OnInit {
   @ViewChild('amountInput') amountInputRef: ElementRef;
   @ViewChild('nameInput') nameInputRef: ElementRef;
-  ingredients = [];
 
-  constructor(private shoppingListService: ShoppingListService) {
+  constructor(private slService: ShoppingListService) {
   }
 
   ngOnInit() {
-    this.ingredients = this.shoppingListService.getIngredient();
   }
 
   onAddItem() {
     const newIngredient = new Ingredient(this.nameInputRef.nativeElement.value,
       this.amountInputRef.nativeElement.value);
-    this.shoppingListService.addIngredient(newIngredient);
+    this.slService.addIngredient(newIngredient);
   }
 
   onDelete(name: HTMLInputElement, amount: HTMLInputElement) {
