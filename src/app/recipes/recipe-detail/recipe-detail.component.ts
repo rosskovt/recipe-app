@@ -13,8 +13,7 @@ export class RecipeDetailComponent implements OnInit {
 
   ngOnInit() {}
 
-  sendToList() {
-    this.recipeService.pushIngredients();
+  onAddToShoppingList() {
+    this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
   }
-
 }
